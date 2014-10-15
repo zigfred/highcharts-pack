@@ -5,6 +5,19 @@
  *
  * License: Creative Commons Attribution (CC)
  */
+
+    ///////////////////////////////////////////////////////////////////////
+    //Jaspersoft Updates (look for comment: JASPERSOFT #x)
+    ///////////////////////////////////////////////////////////////////////
+    // #1 7/8/14 amd-fication - Header; added dependency to jQuery.
+    //
+    // #2 7/8/14 amd-fication - Footer
+    //
+    // #3 8/21/2014 JRS-2886 Change strokeWidth to stroke-width attribute
+    // for support new HC version
+    ///////////////////////////////////////////////////////////////////////
+
+//JASPERSOFT #1
 (function (factory, globalScope) {
     "use strict";
 
@@ -15,6 +28,7 @@
         factory(globalScope.Highcharts);
     }
 }(function(HC){
+    //END JASPERSOFT #1
     /*jshint expr:true, boss:true */
     var UNDEFINED = void 0,
         mathRound = Math.round,
@@ -272,7 +286,9 @@
         if (!grid) {
             grid = axis.labelsGrid = axis.chart.renderer.path()
                 .attr({
-                    strokeWidth: options.lineWidth,
+                    //JASPERSOFT #3
+                    "stroke-width": options.lineWidth,
+                    //END JASPERSOFT #3
                     stroke: options.lineColor
                 })
                 .add(axis.axisGroup);
@@ -541,5 +557,7 @@
             return _tickGetLabelSize.call(this);
     };
 
+    //JASPERSOFT #2
     return HC;
 }, this));
+//END JASPERSOFT #2
