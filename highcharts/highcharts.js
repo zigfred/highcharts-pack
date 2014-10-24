@@ -7349,8 +7349,8 @@
 
                 //JASPERSOFT #14
                 // If no tick are left, set one tick in the middle (#3195)
-                if (tickPositions.length === 0) {
-                    tickPositions.splice(1, 0, (roundedMax + roundedMin) / 2);
+                if (tickPositions.length === 0 && defined(roundedMin)) {
+                    tickPositions.push((roundedMax + roundedMin) / 2);
                 }
                 //END JASPERSOFT #14
 
